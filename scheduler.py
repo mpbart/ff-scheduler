@@ -1,4 +1,4 @@
-from circular_buffer import CircularBuffer
+from ring_buffer import RingBuffer
 from itertools import chain, combinations
 import random
 
@@ -51,7 +51,7 @@ class Scheduler:
         return self.teams
 
     def generate_all_matchups(self, start_week):
-        c = CircularBuffer(self.teams.keys())
+        c = RingBuffer(self.teams.keys())
         week = start_week
         for _ in xrange(self.num_teams - 1):
             for home_team, away_team in c.get_opposites():
